@@ -20,7 +20,7 @@ restService.post("/echo", function(req, res) {
     req.body.result.parameters.echoText
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
-	speech = "alltid";
+	speech = get("https://api.thingspeak.com/channels/594032/fields/1/last");
   return res.json({
     speech: speech,
     displayText: speech,
