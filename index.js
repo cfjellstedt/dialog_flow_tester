@@ -49,7 +49,7 @@ function callThingApi () {
         let last = response['field1'];
 
         // Create response
-        let output = `test`;
+        let output = 'test';
 
         // Resolve the promise with the output text
         console.log(output);
@@ -57,8 +57,11 @@ function callThingApi () {
       });
       res.on('error', (error) => {
         console.log(`Errorinapi`)
-        reject();
+		let output = 'test';
+		resolve(output);
+        //reject();
       });
     });
   });
 }
+
