@@ -18,7 +18,7 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-	let text = myfunc();
+	let text = callThingApi();
 	
 return res.json({ 'fulfillmentText': text });
 });
