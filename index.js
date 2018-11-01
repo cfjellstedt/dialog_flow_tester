@@ -18,10 +18,14 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-let text = myfunc2();
 
 //return res.json({ 'fulfillmentText': text });
-return res.json(text.then(function(result){return result});
+//return res.json(text);
+ myfunc2().then((output) => {
+    res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
+  }).catch(() => {
+    res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
+  });
 });
 
 restService.listen(process.env.PORT || 8000, function() {
