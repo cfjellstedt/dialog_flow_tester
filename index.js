@@ -28,7 +28,6 @@ restService.listen(process.env.PORT || 8000, function() {
 });
 
 function callThingApi () {
-  return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
     let path = '/channels/594032/feeds.json?results=2';
 	  
@@ -47,14 +46,5 @@ function callThingApi () {
         // Create response
         let output = 'testa';
 
-        // Resolve the promise with the output text
-        console.log(output);
-        resolve(output);
-      });
-      res.on('error', (error) => {
-        console.log(`Error calling the weather API: ${error}`)
-        reject();
-      });
-    });
-  });
+       return output;
 }
