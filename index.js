@@ -18,7 +18,7 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-	let text = callThingApi();
+	let text = myfunc();
 	
 return res.json({ 'fulfillmentText': text });
 });
@@ -27,11 +27,14 @@ restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
 
+function myfunc () {
+	return 'hallo';
+}
+
 function callThingApi () {
+    return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
     let path = '/channels/594032/feeds.json?results=2';
-	  
-    console.log('API Request: ' + host + path);
 
     // Make the HTTP request to get the weather
     http.get({host: host, path: path}, (res) => {
@@ -41,10 +44,18 @@ function callThingApi () {
         // After all the data has been received parse the JSON for desired data
         let response = JSON.parse(body);
         let last = response['field1'];
-  
 
         // Create response
-        let output = 'testa';
+        let output = 'test'
 
-       return output;
+        // Resolve the promise with the output text
+        console.log(output);
+        resolve(output);
+      });
+      res.on('error', (error) => {
+        console.log(`Error calling the weather API: ${error}`)
+        reject();
+      });
+    });
+  });
 }
