@@ -1,6 +1,6 @@
 {
-  "name": "dialog_flow_tester",
-  "description": "dialog flow tester",
-  "repository": "https://github.com/cfjellstedt/dialog_flow_tester",
-  "keywords": ["dialogflow", "natural language"]
+  "name": "Webhook-echo-sample",
+  "description": "Webhook echo sample",
+  "repository": "https://github.com/SunilSyal/Webhook-and-API.AI-Samples.git",
+  "keywords": ["api.ai", "dialogflow", "natural language"]
 }
