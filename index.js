@@ -21,7 +21,7 @@ restService.post("/webhook", function(req, res) {
 let text = callThingApi();
 
 //return res.json({ 'fulfillmentText': text });
-return text;
+return res.json(text);
 });
 
 restService.listen(process.env.PORT || 8000, function() {
