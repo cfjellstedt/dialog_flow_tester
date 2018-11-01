@@ -18,9 +18,9 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-	let text = callThingApi();
+
 	
-return res.json({ 'fulfillmentText': text });
+return res.json({ 'fulfillmentText': callThingApi() });
 });
 
 restService.listen(process.env.PORT || 8000, function() {
