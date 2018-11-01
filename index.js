@@ -24,7 +24,7 @@ restService.post("/webhook", function(req, res) {
 	// res.json({ 'fulfillmentText': `a test` });
 	let text = 'tester';
 	
-  return  return res.json({
+return res.json({
     speech: tester
   });
 });
