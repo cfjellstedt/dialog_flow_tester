@@ -18,7 +18,7 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-let text = callThingApi();
+let text = myfunc2();
 
 //return res.json({ 'fulfillmentText': text });
 return res.json(text);
@@ -32,6 +32,13 @@ function myfunc () {
 	return 'hallo';
 }
 
+function myfunc2 () {
+	return new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve('foo');
+  }, 300);
+});
+}
 
 
 
