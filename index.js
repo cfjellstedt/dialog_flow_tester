@@ -18,9 +18,9 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 
-
+let text = callThingApi()
 	
-return res.json({ 'fulfillmentText': callThingApi() });
+return res.json({ 'fulfillmentText': text });
 });
 
 restService.listen(process.env.PORT || 8000, function() {
@@ -38,7 +38,7 @@ function callThingApi () {
     //let path = '/channels/594032/feeds.json?results=2';
 
     // Make the HTTP request to get the weather
-	var output;
+	let output = 'test';
     https.get('https://api.thingspeak.com/channels/594032/feeds.json?results=2', (res) => {
       let body = ''; // var to store the response chunks
       res.on('data', (d) => { body += d; }); // store each response chunk
