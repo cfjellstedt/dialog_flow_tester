@@ -1,6 +1,6 @@
 'use strict';
 
-const http = require('https');
+const https = require('https');
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -34,10 +34,10 @@ function myfunc () {
 function callThingApi () {
     return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
-    let path = '/channels/594032/feeds.json?results=2';
+    //let path = '/channels/594032/feeds.json?results=2';
 
     // Make the HTTP request to get the weather
-    http.get({host: host, path: path}, (res) => {
+    https.get('https://api.thingspeak.com/channels/594032/feeds.json?results=2', (res) => {
       let body = ''; // var to store the response chunks
       res.on('data', (d) => { body += d; }); // store each response chunk
       res.on('end', () => {
