@@ -1,7 +1,9 @@
 'use strict';
 
+/*
 const host = 'api.worldweatheronline.com';
 const wwoApiKey = '<ENTER_WWO_API_KEY_HERE>';
+*/
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -18,9 +20,11 @@ restService.use(bodyParser.json());
 
 restService.post("/webhook", function(req, res) {
 	
-    let test = req.body.queryResult.parameters['geo-city'];
+    //let test = req.body.queryResult.parameters['geo-city'];
+	// res.json({ 'fulfillmentText': `a test` });
+	let text = 'tester';
 	
-  return res.json({ 'fulfillmentText': `a test` });
+  return text
   });
 });
 
