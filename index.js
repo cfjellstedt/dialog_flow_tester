@@ -45,7 +45,7 @@ function callThingApi () {
   
 
         // Create response
-        let output = last;
+        let output = 'testa';
 
         // Resolve the promise with the output text
         console.log(output);
