@@ -38,7 +38,7 @@ function callThingApi () {
     //let path = '/channels/594032/feeds.json?results=2';
 
     // Make the HTTP request to get the weather
-	let output = 'test';
+	var output = 'test';
     https.get('https://api.thingspeak.com/channels/594032/feeds.json?results=2', (res) => {
       let body = ''; // var to store the response chunks
       res.on('data', (d) => { body += d; }); // store each response chunk
