@@ -21,7 +21,7 @@ restService.post("/webhook", function(req, res) {
 let text = myfunc2();
 
 //return res.json({ 'fulfillmentText': text });
-return res.json(text.then(function(value));
+return res.json(text.then(function(result){return result});
 });
 
 restService.listen(process.env.PORT || 8000, function() {
@@ -34,9 +34,8 @@ function myfunc () {
 
 function myfunc2 () {
 	return new Promise(function(resolve, reject) {
-  setTimeout(function() {
-    resolve('foo');
-  }, 300);
+  // not taking our time to do the job
+  resolve(123); // immediately give the result: 123
 });
 }
 
