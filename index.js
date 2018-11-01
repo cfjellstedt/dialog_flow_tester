@@ -17,9 +17,7 @@ restService.post("/webhook", function(req, res) {
 
 	let text = 'tester';
 	
-return res.json({
-    speech: text
-  });
+return res.json({ 'fulfillmentText': `just a test!` });
 });
 
 restService.listen(process.env.PORT || 8000, function() {
