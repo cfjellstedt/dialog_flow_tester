@@ -58,6 +58,7 @@ function callThingApi () {
         output = 'testerror';
       });
     });
+	output = 'te';
 	return output;
 }
 
