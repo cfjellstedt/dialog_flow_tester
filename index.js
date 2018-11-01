@@ -21,7 +21,7 @@ restService.post("/webhook", function(req, res) {
 
 //return res.json({ 'fulfillmentText': text });
 //return res.json(text);
- myfunc2().then((output) => {
+ callThingApi().then((output) => {
     res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
   }).catch(() => {
     res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
@@ -60,17 +60,15 @@ function callThingApi () {
         let last = response['field1'];
 
         // Create response
-        let output = 'test';
+        let output = last;
 
         // Resolve the promise with the output text
         console.log(output);
         resolve(output);
       });
       res.on('error', (error) => {
-        console.log(`Errorinapi`)
-		let output = 'test';
-		resolve(output);
-        //reject();
+        console.log(`Error calling the weather API: ${error}`)
+        reject();
       });
     });
   });
